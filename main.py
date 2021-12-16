@@ -6,5 +6,9 @@ if __name__=='__main__':
 
     if response.status_code==200:
        json_data=response.json()
-       print(json_data)
+       ##print(json_data)
+       json_data_cont=len(json_data)
+       
+       for i in range(json_data_cont-1):
+           print(json_data[i]['name'])
     
