@@ -12,16 +12,30 @@
     })
   };
   getISS();
-  var HTM;
+  var HTM="";
   function y(data2) {
     console.log(data2);
     
     data2.forEach(element => {
       HTM += `
-          <p>nombre: ` + element.name + `<br />
-              precio:` + element.price + `<br />
-              </p>
-          `;
+      <div class="col-lg-4 col-md-6 ">
+      <div class="card" style="width: 16rem;">
+          <img class="card-img-top" src="../public/images/general.png" alt="...">
+          <div class="card-body">
+              <div class="text-center">
+                  <h5 class="fw-bolder">`+ element.name +`</h5>
+                          <!-- Product price--> $ `
+                          + element.price +  `
+              </div>
+          </div>
+      </div>
+  </div>
+  `
+
+          // <p>nombre: ` + element.name + `<br />
+          //     precio:` + element.price + `<br />
+          //     </p>
+          ;
     });
     console.log(HTM);
     
