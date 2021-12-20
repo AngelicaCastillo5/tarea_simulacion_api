@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=\, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fetch JSON from API and map lat lon</title>
 </head>
+
 <body>
 
-    <p>nombre: <span id="n"></span><br />
-        precio:<span id="p"></span>
-    </p>
-
     <script>
-        const api_url ='https://staging-allipen.kinsta.cloud/wp-json/wc/v3/products?consumer_key=ck_3aacf3a37869204b5d2dd8e52f1ad33654090049&consumer_secret=cs_58ba90340050b68481260e29349bfbb3bc73b956&_fields%5B%5D=name&_fields%5B%5D=sku&_fields%5B%5D=price&_fields%5B%5D=regular_price&_fields%5B%5D=stock_quantity&_fields%5B%5D=permalink&per_page=100';
-       
-        async function getISS(){
-            const responce=await fetch(api_url);
-            const data=await responce.json();
-            const {name,price}=data[1];
-            document.getElementById('n').textContent=name;
-            document.getElementById('p').textContent=price;
-        };
+        const api_url =
+            'https://staging-allipen.kinsta.cloud/wp-json/wc/v3/products?consumer_key=ck_3aacf3a37869204b5d2dd8e52f1ad33654090049&consumer_secret=cs_58ba90340050b68481260e29349bfbb3bc73b956&_fields%5B%5D=name&_fields%5B%5D=sku&_fields%5B%5D=price&_fields%5B%5D=regular_price&_fields%5B%5D=stock_quantity&_fields%5B%5D=permalink&per_page=100';
 
+        async function getISS() {
+            const responce = fetch(api_url);
+            responce.then(
+               arreglo=>{
+                return arreglo.json();
+               } 
+            ).then( data=>{
+                
+                y(data);
+            }
+            )
+           
+        };
         getISS();
     </script>
+
+    <script>
+        
+        function y(data2) {
+            console.log(data2);
+            var HTM;
+            data2.forEach(element => {
+                HTM += `
+            <p>nombre: ` + element.name + `<br />
+                precio:` + element.price + `<br />
+                </p>
+            `;
+            });
+            console.log(HTM);
+        }
+    </script>
 </body>
+
 </html>

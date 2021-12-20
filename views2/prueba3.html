@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=\, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>s</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fetch JSON from API</title>
+</head>
+
 <body>
+    <div id="contenedor">
+        <p id="escrito">
 
-<h2>Create Object from JSON String</h2>
-
-<p id="demo"></p>
-
-<script>
-let text = '{"employees":[' +
-'{"firstName":"John","lastName":"Doe" },' +
-'{"firstName":"Anna","lastName":"Smith" },' +
-'{"firstName":"Peter","lastName":"Jones" }]}';
-
-const obj = JSON.parse(text);
-document.getElementById("demo").innerHTML =
-obj.employees[1].firstName + " " + obj.employees[1].lastName;
-</script>
-
+        </p>
+    </div>
+    <script src="../js/app.js"></script>
 </body>
+
 </html>
