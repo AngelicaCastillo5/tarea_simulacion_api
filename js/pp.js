@@ -1,5 +1,3 @@
-
-
 let jsp_current_page = 1;
 const jsp_records_per_page = 4;
 

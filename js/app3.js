@@ -10,7 +10,7 @@ const apiURLPedidos = urlPrincipal + urlPedidos + urlKeyPedidos;
 const apiURLProductos = urlPrincipal + urlKeyProductos + urlKeyProductos;
 var cantidadPedidos = '';
 //var tablaHTML = "<tr><th>Pedido</th><th>comprador</th><th>fecha</th><th>estado</th><th>total</th></tr>"
-var tablaHTML = "";
+var tablaHTML = "<tr><th>Pedido</th><th>comprador</th><th>fecha</th><th>estado</th><th>total</th></tr>";
 async function getISS() {
     const responce = fetch(apiURLPedidos);
     console.log(responce);
@@ -42,5 +42,5 @@ function llenadoTabla(data, tablaHTMLF) {
          </tr>
          `;
     }
-    document.getElementById("tablaPedidos").innerHTML = tablaHTMLF;
+    document.getElementById("myTable").innerHTML = tablaHTMLF;
 }
