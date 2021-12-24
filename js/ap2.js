@@ -24,12 +24,13 @@ const api_url =
           <div class="card-body">
               <div class="text-center">
                   <h5 class="fw-bolder">`+ element.name +`</h5>
-                          <!-- Product price--> $`
+                          <!-- Product price--> $ `
                           + element.price +  `
               </div>
           </div>
       </div>
-  </div>`
+  </div>
+  `
 
           // <p>nombre: ` + element.name + `<br />
           //     precio:` + element.price + `<br />
