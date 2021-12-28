@@ -21,6 +21,8 @@ function getISS(paso) {
         return data;
     })
 };
+
+
 var aux;
 async function prueba(pageActual) {
     for (let pageActual = 1; pageActual <= paginas; pageActual++) {
@@ -29,22 +31,29 @@ async function prueba(pageActual) {
         arregloContenedor.push(data2);
     }
     let largo_vector = arregloContenedor.length;
-    console.log(largo_vector);
-    paginacion(largo_vector, html_P);
+    showPages()
+
 
 };
 
+function showPages(id) {
+    console.log("la id es : " + id);
+}
 prueba(paginaActual);
 
 function paginacion(largo_vector, htmlPagination) {
     console.log(largo_vector);
     for (let i = 1; i <= largo_vector; i++) {
         htmlPagination += `<li><a href=#>` + i + `</a></li>`
-        console.log(i);
+
     }
     document.getElementById("pagination").innerHTML = htmlPagination;
-
+    var pager = $('.pager');
+    console.log("paginacion: " + pager.length);
 }
+
+
+
 
 function llenadoTabla(data, tablaHTMLF) {
     //console.log(data);
@@ -72,4 +81,13 @@ function busqueda() {
             });
         });
     });
+}
+
+
+
+function test(pageNumber) {
+
+    var page = "#pagination" + pageNumber;
+    $('.select').hide()
+    $(page).show()
 }
