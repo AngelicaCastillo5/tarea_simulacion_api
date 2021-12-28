@@ -11,11 +11,13 @@ const apiURLProductos = urlPrincipal + urlKeyProductos + urlKeyProductos;
 var cantidadPedidos = '';
 //var tablaHTML = "<tr><th>Pedido</th><th>comprador</th><th>fecha</th><th>estado</th><th>total</th></tr>"
 var tablaHTML = "";
+
+
 async function getISS() {
 
     const responce = fetch(apiURLPedidos);
 
-    console.log(responce);
+    //console.log(responce);
     responce.then(
         arreglo => {
             return arreglo.json();
@@ -24,6 +26,7 @@ async function getISS() {
     ).then(data => {
         cantidadPedidos = `<h3> Cantidad de pedidos rescatados de la api ` + data.length + `</h3>`;
         //document.getElementById("NPedidos").innerHTML = cantidadPedidos;
+        console.log(data);
         llenadoTabla(data, tablaHTML);
         busqueda();
 
@@ -57,6 +60,4 @@ function busqueda() {
             });
         });
     });
-
-
 }

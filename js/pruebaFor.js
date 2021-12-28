@@ -8,43 +8,41 @@ var tablaHTML = ""; //variable que almaccena el escrito de la tabal en el html
 var ActualPagina = 1; //pagina que itera 
 var arregloContenedor = []; //arreglo para almacenar pedidos 
 html_P = ""; //intento de paginacion 
-//const paginas = 184; //total de paginas 
+const paginas = 2; //total de paginas 
 
 
-// async function getISS() {
-//     const responce = fetch(apiURLPedidos + paso);
-//     //console.log(responce);
-//     responce.then(
-//         arreglo => {
-//             return arreglo.json();
-//         }
-//     ).then(data => {
-//         //console.log(data);
-//         return data
-//             // arregloContenedor.push(data);
-//     })
-// };
+function getISS(paso) {
+    const responce = fetch(apiURLPedidos + paso);
+    return responce.then(
+        arreglo => {
+            return arreglo.json();
+        }
+    ).then(data => {
+        return data;
+    })
+};
+var aux;
+async function prueba(pageActual) {
+    for (let pageActual = 1; pageActual <= paginas; pageActual++) {
+        let data2 = await getISS(pageActual);
+        console.log(data2);
+        arregloContenedor.push(data2);
+    }
+    let largo_vector = arregloContenedor.length;
+    console.log(largo_vector);
+    paginacion(largo_vector, html_P);
 
-var paginas = [];
-for (let i = 1; i <= 2; i++) {
-    paginas.push(i);
-}
-console.log(paginas);
-var responce = "";
-var contenedor = [];
-let lista_objetos =
-    console.log(paginas.forEach(output));
+};
 
+prueba(paginaActual);
 
-function output(item, index, array) {
-    var urlTotal = apiURLPedidos + item;
-    responce = fetch(urlTotal);
-    responce.then((arreglo) => {
-        contenedor.push(arreglo);
-        return contenedor;
-    }).catch((err) => {
-        console.log(err);
-    });
+function paginacion(largo_vector, htmlPagination) {
+    console.log(largo_vector);
+    for (let i = 1; i <= largo_vector; i++) {
+        htmlPagination += `<li><a href=#>` + i + `</a></li>`
+        console.log(i);
+    }
+    document.getElementById("pagination").innerHTML = htmlPagination;
 
 }
 
