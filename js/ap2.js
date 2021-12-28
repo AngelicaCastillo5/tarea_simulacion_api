@@ -28,8 +28,13 @@ async function getISS(paso) {
         // tablaHTML = llenadoTabla(data, tablaHTML);
         // busqueda();
         arregloContenedor.push(data);
-        console.log(arregloContenedor);
+        return arregloContenedor;
 
+        //console.log(arregloContenedor);
+
+    }).then(array_c => {
+        console.log(array_c);
+        // paginacion(arregloContenedor.length, html_P);
     })
 };
 
@@ -41,7 +46,17 @@ for (let pageActual = 1; pageActual <= paginas; pageActual++) {
     //console.log(pageActual);
     getISS(pageActual);
 }
+html_P = "";
 
+function paginacion(largo_vector, htmlPagination) {
+    console.log(largo_vector);
+    for (let i = 1; i <= largo_vector; i++) {
+        htmlPagination += `<li><a href=#>` + i + `</a></li>`
+        console.log(i);
+    }
+    document.getElementById("pagination").innerHTML = htmlPagination;
+
+}
 
 function llenadoTabla(data, tablaHTMLF) {
     //console.log(data);
